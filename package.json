@@ -1,0 +1,22 @@
+{
+  "name": "Party-Demo",
+  "version": "0.0.1",
+  "description": "#FrontEndParty 6 Demo",
+  "main": "bin/demo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robschley/Party-Demo.git"
+  },
+  "author": "Rob Schley",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "a5ed27b50b04de12a4b2cfee021617c7b6368e0b",
+  "dependencies": {
+    "express": "~3.3.4",
+    "jade": "~0.33.0",
+    "less-middleware": "~0.1.12"
+  }
+}

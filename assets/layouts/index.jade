@@ -1,0 +1,39 @@
+doctype 5
+html(lang='en', xmlns:ng='http://angularjs.org', id='ng-app', ng-app='PartyApp')
+	head
+		meta(charset='utf-8')
+		title #FrontEndParty 6 Demo
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(rel='stylesheet', href='/styles/application.css')
+	body
+		block login
+			.container(ng-cloak, ng-show='$identity.guest')
+				form.form-signin(ng-controller='LoginFormController', ng-submit='submit()')
+					h2.form-signin-heading Please sign in
+					p Any username and password will work.
+					input.input-block-level(type='text', required, ng-model='credentials.username', placeholder='Username')
+					input.input-block-level(type='password', required, ng-model='credentials.password', placeholder='Password')
+					button.btn.btn-large.btn-primary(type='submit', ng-disabled='state.submitted') Sign in
+		block content
+			.container(ng-cloak, ng-hide='$identity.guest')
+				.navbar
+					.navbar-inner
+						a.brand(ng-href='/') #FrontEndParty 6 Demo
+						ul.nav.pull
+							li(ng-class='{ active: $state.includes("home") }')
+								a(ng-href='/') Home
+							li(ng-class='{ active: $state.includes("resources") }')
+								a(ng-href='/resources') Resources
+							li(ng-class='{ active: $state.includes("about") }')
+								a(ng-href='/about') About
+
+				.row-fluid
+					.span3(ui-view='sidebar')
+					.span9(ui-view='content')
+
+		block scripts
+			script(type='text/javascript', src='/components/angular/angular.js')
+			script(type='text/javascript', src='/components/ui-router/release/angular-ui-router.js')
+			script(type='text/javascript', src='/components/angular-resource/angular-resource.js')
+			script(type='text/javascript', src='/scripts/identity.js')
+			script(type='text/javascript', src='/scripts/app.js')

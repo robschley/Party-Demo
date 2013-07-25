@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+// Load the server module.
+var server = require('../lib/server');
+
+// Initialize the server.
+server.initialize();
+
+// Start the server.
+server.listen();
